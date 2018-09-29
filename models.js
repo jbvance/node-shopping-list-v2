@@ -55,6 +55,7 @@ function createShoppingList() {
 
 const Recipes = {
   create: function(name, ingredients) {
+    console.log("INGREDIENTS", ingredients);
     console.log('Creating a new recipe');
     const item = {
       name: name,

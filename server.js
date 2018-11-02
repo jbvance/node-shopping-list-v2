@@ -33,7 +33,7 @@ app.get('/shopping-list', (req, res) => {
 
 app.post('/shopping-list', jsonParser, (req, res) => {
   // ensure `name` and `ingredients` are in request body
-  const requiredFields = ['name', 'ingredients'];
+  const requiredFields = ['name', 'budget'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -43,7 +43,7 @@ app.post('/shopping-list', jsonParser, (req, res) => {
     }
   }
 
-  const item = Recipe.create(req.body.name, req.body.ingredients);
+  const item = ShoppingList.create(req.body.name, req.body.budget);
   res.status(201).json(item);
 });
 
